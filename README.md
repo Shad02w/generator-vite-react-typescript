@@ -1,0 +1,1 @@
+# generator-vite-react-typescript
