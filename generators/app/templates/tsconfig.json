@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "target": "ES6",
+        "lib": ["DOM", "ESNext"],
+        "module": "CommonJS",
+        "jsx": "react-jsx",
+        "strict": true,
+        "declaration": true,
+        "moduleResolution": "node",
+        "downlevelIteration": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+        // "outDir": "your out dir",
+        // "rootDir": "your root dir",
+    },
+    "include": ["src"]
+}
