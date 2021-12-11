@@ -7,11 +7,19 @@ const PackageManager = {
 }
 
 module.exports = class extends Generator {
-    /** @type {('npm' | 'yarn' | 'pnpm')} */
-    packageManager = "npm"
+    /** @type {('npm' | 'yarn' | 'pnpm' | null)} */
+    packageManager = null
 
     /** @type {string} */
     projectName = "vite-react-typescript"
+
+    /** @type {boolean} */
+    skipInstall = false
+
+    constructor(args, opts) {
+        super(args, opts)
+        this.skipInstall = this.options["skip-install"]
+    }
 
     initializing() {
         this.log("")
@@ -20,21 +28,23 @@ module.exports = class extends Generator {
     }
 
     async prompting() {
-        const result = await this.prompt([
-            {
-                type: "input",
-                name: "projectName",
-                message: "Enter Your project name (keep it lowercase):",
-            },
-            {
+        const { projectName } = await this.prompt({
+            type: "input",
+            name: "projectName",
+            message: "Enter Your project name (keep it lowercase):",
+        })
+
+        this.projectName = String.prototype.toLowerCase.call(projectName)
+
+        if (!this.skipInstall) {
+            const { packageManager } = await this.prompt({
                 type: "list",
                 name: "packageManager",
                 message: "Choose your package manager:",
                 choices: Object.keys(PackageManager),
-            },
-        ])
-        this.projectName = String.prototype.toLowerCase.call(result.projectName)
-        this.packageManager = result.packageManager
+            })
+            this.packageManager = packageManager
+        }
     }
 
     writing() {
@@ -42,7 +52,7 @@ module.exports = class extends Generator {
     }
 
     install() {
-        if (!this.options["skip-install"]) {
+        if (!this.skipInstall && this.packageManager) {
             this.env.options.nodePackageManager = this.packageManager
         }
     }
