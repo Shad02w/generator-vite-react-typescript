@@ -31,3 +31,7 @@ It will ask for
 ## License
 
 MIT
+
+## Contributors
+
+https://github.com/uay13211
