@@ -71,5 +71,5 @@ module.exports = class extends Generator {
 function copyTemplates(generator, config) {
     const templatePath = generator.templatePath("**/*")
     const destPath = generator.destinationPath()
-    generator.fs.copyTpl(templatePath, destPath, config)
+    generator.fs.copyTpl(templatePath, destPath, config, {}, { globOptions: { dot: true } })
 }
