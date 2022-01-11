@@ -1,6 +1,6 @@
 {
     "name": "generator-vite-react-typescript",
-    "version": "1.2.2",
+    "version": "1.3.0",
     "description": "Generate a react app which use vite, prettier and eslint",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,9 +23,9 @@
     },
     "homepage": "https://github.com/Shad02w/generator-vite-react-typescript#readme",
     "dependencies": {
-        "yeoman-generator": "5.4.2"
+        "yeoman-generator": "5.5.2"
     },
     "devDependencies": {
-        "@types/yeoman-generator": "5.2.7"
+        "@types/yeoman-generator": "5.2.8"
     }
 }

@@ -1,19 +1,9 @@
 {
+    "extends": "./config/tsconfig.base.json",
     "compilerOptions": {
-        "allowJs": true,
-        "target": "ES6",
-        "lib": ["DOM", "ESNext"],
-        "module": "CommonJS",
-        "jsx": "react-jsx",
-        "strict": true,
-        "declaration": true,
-        "moduleResolution": "node",
-        "downlevelIteration": true,
-        "resolveJsonModule": true,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
-        // "outDir": "your out dir",
-        // "rootDir": "your root dir",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "jsx": "react-jsx"
     },
-    "include": ["src"]
+    "include": ["src"],
+    "exclude": ["node_modules"]
 }
